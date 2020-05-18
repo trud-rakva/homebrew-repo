@@ -13,7 +13,7 @@ class Openssh < Formula
   depends_on "pkg-config" => :build
   depends_on "ldns"
   depends_on "libfido2"
-  depends_on "openssl@1.1"
+  depends_on "libressl"
 
   resource "com.openssh.sshd.sb" do
     url "https://opensource.apple.com/source/OpenSSH/OpenSSH-209.50.1/com.openssh.sshd.sb"
@@ -45,7 +45,7 @@ class Openssh < Formula
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl-dir=#{Formula["libressl"].opt_prefix}
       --with-security-key-builtin
     ]
 
