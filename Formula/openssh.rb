@@ -1,5 +1,5 @@
 class Openssh < Formula
-  desc "OpenBSD freely-licensed SSH connectivity tools"
+  desc "OpenBSD SSH connectivity tools compiled with LibreSSL"
   homepage "https://www.openssh.com/"
   url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.3p1.tar.gz"
   mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.3p1.tar.gz"
@@ -16,7 +16,7 @@ class Openssh < Formula
   depends_on "libressl"
 
   resource "com.openssh.sshd.sb" do
-    url "https://opensource.apple.com/source/OpenSSH/OpenSSH-209.50.1/com.openssh.sshd.sb"
+    url "https://opensource.apple.com/source/OpenSSH/OpenSSH-235/com.openssh.sshd.sb"
     sha256 "a273f86360ea5da3910cfa4c118be931d10904267605cdd4b2055ced3a829774"
   end
 
