@@ -17,7 +17,7 @@ class Openssh < Formula
   depends_on "pkg-config" => :build
   depends_on "trud-rakva/repo/ldns"
   depends_on "trud-rakva/repo/libfido2"
-  depends_on "trud-rakva/repo/libressl"
+  depends_on "libressl"
 
   resource "com.openssh.sshd.sb" do
     url "https://opensource.apple.com/source/OpenSSH/OpenSSH-235/com.openssh.sshd.sb"
