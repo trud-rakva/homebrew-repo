@@ -5,15 +5,19 @@ class Openssh < Formula
   mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.4p1.tar.gz"
   version "8.4p1"
   sha256 "5a01d22e407eb1c05ba8a8f7c654d388a13e9f226e4ed33bd38748dafa1d2b24"
-  revision 1
 
+  livecheck do
+    url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
+    regex(/href=.*?openssh[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
+  end
+  
   # Please don't resubmit the keychain patch option. It will never be accepted.
   # https://archive.is/hSB6d#10%25
 
   depends_on "pkg-config" => :build
-  depends_on "ldns"
-  depends_on "libfido2"
-  depends_on "libressl"
+  depends_on "trud-rakva/repo/ldns"
+  depends_on "trud-rakva/repo/libfido2"
+  depends_on "trud-rakva/repo/libressl"
 
   resource "com.openssh.sshd.sb" do
     url "https://opensource.apple.com/source/OpenSSH/OpenSSH-235/com.openssh.sshd.sb"
