@@ -13,7 +13,7 @@ class Rsync < Formula
   end
 
   depends_on "lz4"
-  depends_on "libressl"
+  depends_on "trud-rakva/repo/libressl"
   depends_on "popt"
   depends_on "xxhash"
   depends_on "zstd"
