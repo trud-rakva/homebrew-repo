@@ -10,7 +10,7 @@ class Libfido2 < Formula
   depends_on "mandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "libcbor"
-  depends_on "libressl"
+  depends_on "trud-rakva/repo/libressl"
 
   def install
     mkdir "build" do
