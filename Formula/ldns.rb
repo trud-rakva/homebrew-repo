@@ -13,7 +13,7 @@ class Ldns < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "libressl"
+  depends_on "trud-rakva/repo/libressl"
 
   def install
     args = %W[
