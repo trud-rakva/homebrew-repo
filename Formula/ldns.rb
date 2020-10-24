@@ -19,6 +19,7 @@ class Ldns < Formula
       --with-drill
       --with-examples
       --with-ssl=#{Formula["libressl"].opt_prefix}
+      --disable-dane-verify
     ]
 
     system "./configure", *args
