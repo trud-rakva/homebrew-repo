@@ -45,7 +45,7 @@ class Openssh < Formula
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/ssh
-      ###--with-ldns
+    ###--with-ldns
       --with-libedit
       --with-kerberos5
       --with-pam
