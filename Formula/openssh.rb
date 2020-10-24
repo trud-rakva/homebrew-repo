@@ -42,10 +42,10 @@ class Openssh < Formula
     # We introduce this issue with patching, it's not an upstream bug.
     inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh"
 
+    #v#--with-ldns
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/ssh
-    ###--with-ldns
       --with-libedit
       --with-kerberos5
       --with-pam
