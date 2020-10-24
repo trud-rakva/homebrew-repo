@@ -15,7 +15,7 @@ class Openssh < Formula
   # https://archive.is/hSB6d#10%25
 
   depends_on "pkg-config" => :build
-  depends_on "trud-rakva/repo/ldns"
+  ###depends_on "trud-rakva/repo/ldns"
   depends_on "trud-rakva/repo/libfido2"
   depends_on "trud-rakva/repo/libressl"
 
@@ -45,7 +45,7 @@ class Openssh < Formula
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/ssh
-      --with-ldns
+      ###--with-ldns
       --with-libedit
       --with-kerberos5
       --with-pam
