@@ -46,7 +46,6 @@ class Openssh < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/ssh
       --with-ldns
-      --with-libedit
       --with-kerberos5
       --with-pam
       --with-ssl-dir=#{Formula["libressl"].opt_prefix}
