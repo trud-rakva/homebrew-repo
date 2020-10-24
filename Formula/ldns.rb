@@ -3,7 +3,6 @@ class Ldns < Formula
   homepage "https://nlnetlabs.nl/projects/ldns/"
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz"
   sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
-  revision 2
 
   # https://nlnetlabs.nl/downloads/ldns/ since the first-party site has a
   # tendency to lead to an `execution expired` error.
@@ -12,7 +11,6 @@ class Ldns < Formula
     regex(/^(?:release-)?v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "swig" => :build
   depends_on "trud-rakva/repo/libressl"
 
   def install
@@ -21,7 +19,6 @@ class Ldns < Formula
       --with-drill
       --with-examples
       --with-ssl=#{Formula["libressl"].opt_prefix}
-      --disable-dane-verify
     ]
 
     system "./configure", *args
