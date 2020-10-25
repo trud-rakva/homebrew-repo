@@ -15,7 +15,7 @@ class Openssh < Formula
   # https://archive.is/hSB6d#10%25
 
   depends_on "pkg-config" => :build
-  ###depends_on "trud-rakva/repo/ldns"
+  depends_on "trud-rakva/repo/ldns"
   depends_on "trud-rakva/repo/libfido2"
   depends_on "trud-rakva/repo/libressl"
 
@@ -42,13 +42,14 @@ class Openssh < Formula
     # We introduce this issue with patching, it's not an upstream bug.
     inreplace "sandbox-darwin.c", "@PREFIX@/share/openssh", etc/"ssh"
 
-    #v#--with-ldns
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/ssh
       --with-libedit
       --with-kerberos5
       --with-pam
+      --with-ldns
+      --with-ldns-dir=#{Formula["ldns"].opt_prefix}
       --with-ssl-dir=#{Formula["libressl"].opt_prefix}
       --with-security-key-builtin
     ]
