@@ -48,9 +48,8 @@ class Openssh < Formula
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ldns
-      --with-ldns-dir=#{Formula["ldns"].opt_prefix}
       --with-ssl-dir=#{Formula["libressl"].opt_prefix}
+      --with-ldns=#{Formula["ldns"].opt_prefix}
       --with-security-key-builtin
     ]
 
