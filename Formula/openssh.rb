@@ -1,18 +1,15 @@
 class Openssh < Formula
   desc "OpenBSD SSH connectivity tools compiled with LibreSSL"
   homepage "https://www.openssh.com/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.7p1.tar.gz"
-  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.7p1.tar.gz"
-  version "8.7p1"
-  sha256 "7ca34b8bb24ae9e50f33792b7091b3841d7e1b440ff57bc9fabddf01e2ed1e24"
+  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.8p1.tar.gz"
+  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.8p1.tar.gz"
+  version "8.8p1"
+  sha256 "4590890ea9bb9ace4f71ae331785a3a5823232435161960ed5fc86588f331fe9"
   
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
     regex(/href=.*?openssh[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
   end
-  
-  # Please don't resubmit the keychain patch option. It will never be accepted.
-  # https://archive.is/hSB6d#10%25
 
   depends_on "pkg-config" => :build
   depends_on "trud-rakva/repo/ldns"
