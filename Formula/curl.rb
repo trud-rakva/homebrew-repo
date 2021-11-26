@@ -43,10 +43,9 @@ class Curl < Formula
       --with-gssapi
     ]
     # mk: remove openssl pkg-config to force libressl
-    #xpkgp0 = '$(echo $PKG_CONFIG_PATH | sed \'s/:[^:]*openssl[^:]*//\')'
-    xpkgp = 'blah'
-    system( { PKG_CONFIG_PATH => xpkgp }, "echo", '$PKG_CONFIG_PATH' )
-    system( { PKG_CONFIG_PATH => xpkgp }, "./configure", *args )
+    xpkgp = '$(echo $PKG_CONFIG_PATH | sed \'s/:[^:]*openssl[^:]*//\')'
+    system( { "PKG_CONFIG_PATH" => xpkgp }, "echo", '$PKG_CONFIG_PATH' )
+    system( { "PKG_CONFIG_PATH" => xpkgp }, "./configure", *args )
     system "make", "install"
   end
 
