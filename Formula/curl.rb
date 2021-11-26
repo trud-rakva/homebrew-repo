@@ -6,7 +6,6 @@ class Curl < Formula
   mirror "http://fresh-center.net/linux/www/curl-7.80.0.tar.bz2"
   mirror "http://fresh-center.net/linux/www/legacy/curl-7.80.0.tar.bz2"
   sha256 "dd0d150e49cd950aff35e16b628edf04927f0289df42883750cf952bb858189c"
-  revision 1
 
   livecheck do
     url "https://curl.se/download/"
@@ -42,7 +41,7 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-ssl=#{Formula["libressl"].opt_prefix}
+      --with-openssl=#{Formula["libressl"].opt_prefix}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
