@@ -31,7 +31,7 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-openssl=#{Formula["libressl"].opt_prefix}
+      --with-ssl=#{Formula["libressl"].opt_prefix}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
@@ -43,10 +43,8 @@ class Curl < Formula
       --with-gssapi
     ]
 
-    system "./configure", *args
+    system "./configure", "PKG_CONFIG_PATH=", *args
     system "make", "install"
-    system "make", "install", "-C", "scripts"
-    libexec.install "lib/mk-ca-bundle.pl"
   end
 
   test do
