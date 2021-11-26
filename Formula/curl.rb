@@ -46,7 +46,6 @@ class Curl < Formula
       --without-ca-path
       --with-ca-fallback
       --with-secure-transport
-      --with-default-ssl-backend=openssl
       --with-libidn2
       --with-librtmp
       --with-libssh2
