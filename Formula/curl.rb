@@ -17,7 +17,6 @@ class Curl < Formula
   depends_on "libnghttp2"
   depends_on "libssh2"
   depends_on "openldap"
-  depends_on "rtmpdump"
   depends_on "zstd"
   depends_on "trud-rakva/repo/libressl"
   
@@ -37,7 +36,6 @@ class Curl < Formula
       --with-ca-fallback
       --with-secure-transport
       --with-libidn2
-      --with-librtmp
       --with-libssh2
       --without-libpsl
       --with-gssapi
