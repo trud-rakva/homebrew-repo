@@ -42,8 +42,8 @@ class Curl < Formula
       --without-libpsl
       --with-gssapi
     ]
-
-    system "./configure", "PKG_CONFIG_PATH=", *args
+    # mk: remove openssl pkg-config to force libressl
+    system "./configure", "PKG_CONFIG_PATH=\"$(echo $PKG_CONFIG_PATH | sed 's/:[^:]*openssl[^:]*//')\"", *args
     system "make", "install"
   end
 
