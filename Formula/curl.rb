@@ -16,7 +16,6 @@ class Curl < Formula
   depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "openldap"
   depends_on "zstd"
   depends_on "trud-rakva/repo/libressl"
   
