@@ -12,15 +12,6 @@ class Curl < Formula
     regex(/href=.*?curl[._-]v?(.*?)\.t/i)
   end
 
-  head do
-    url "https://github.com/curl/curl.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
-  depends_on "pkg-config" => :build
   depends_on "brotli"
   depends_on "libidn2"
   depends_on "libnghttp2"
@@ -34,7 +25,6 @@ class Curl < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./buildconf" if build.head?
 
     args = %W[
       --disable-debug
