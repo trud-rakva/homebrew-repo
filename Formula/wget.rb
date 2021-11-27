@@ -11,7 +11,7 @@ class Wget < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
-                          "--with-ssl=libressl",
+                          "--with-ssl=openssl",
                           "--with-libssl-prefix=#{Formula["libressl"].opt_prefix}",
                           "--disable-pcre",
                           "--disable-pcre2",
