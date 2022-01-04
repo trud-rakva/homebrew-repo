@@ -5,11 +5,14 @@ class Wget2 < Formula
   sha256 "4fe2fba0abb653ecc1cc180bea7f04212c17e8fe05c85aaac8baeac4cd241544"
 
   depends_on "pkg-config" => :build
-  depends_on "libidn2"
+  depends_on "gettext"
   depends_on "trud-rakva/repo/libressl"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
                           "--with-libssl-prefix=#{Formula["libressl"].opt_prefix}",
@@ -17,6 +20,8 @@ class Wget2 < Formula
                           "--disable-pcre2",
                           "--without-libpsl",
                           "--without-included-regex"
+    system "make"
+    system "make", "check"
     system "make", "install"
   end
 
