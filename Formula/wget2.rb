@@ -6,10 +6,12 @@ class Wget2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
+  depends_on "pcre2"
   depends_on "gnutls"
   depends_on "gpgme"
   depends_on "libpsl"
   depends_on "nghttp2"
+  depends_on "libmicrohttpd"
   
   def install
     system "./configure", "--disable-dependency-tracking",
