@@ -14,9 +14,7 @@ class Wget2 < Formula
   depends_on "libmicrohttpd"
   
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
+    system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
     
     system "make"
