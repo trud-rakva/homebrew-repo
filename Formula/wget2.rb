@@ -17,8 +17,7 @@ class Wget2 < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "LIBS=\"-framework CoreFoundation\""
+                          "--sysconfdir=#{etc}"
     
     system "make"
     system "make", "check"
