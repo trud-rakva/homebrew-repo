@@ -6,20 +6,17 @@ class Wget2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "trud-rakva/repo/libressl"
-
+  depends_on "gnutls"
+  depends_on "gpgme"
+  depends_on "libpsl"
+  depends_on "nghttp2"
+  
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--with-ssl=openssl",
-                          "--with-libssl-prefix=#{Formula["libressl"].opt_prefix}",
-                          "--disable-pcre",
-                          "--disable-pcre2",
-                          "--without-libpsl",
-                          "--without-included-regex"
+                          "--sysconfdir=#{etc}"
+    
     system "make"
     system "make", "check"
     system "make", "install"
