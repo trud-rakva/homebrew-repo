@@ -14,11 +14,11 @@ class Wget2 < Formula
   depends_on "libmicrohttpd"
   
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}"
+                          "--sysconfdir=#{etc}",
+                          "LIBS=\"-framework CoreFoundation\""
     
     system "make"
     system "make", "check"
