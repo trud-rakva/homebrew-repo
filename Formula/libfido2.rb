@@ -11,7 +11,7 @@ class Libfido2 < Formula
   depends_on "trud-rakva/repo/libressl"
   
   patch do
-    url "https://github.com/trud-rakva/homebrew-repo/blob/master/Patches/libfido2-libressl35.patch
+    url "https://github.com/trud-rakva/homebrew-repo/blob/master/Patches/libfido2-libressl35.patch"
     sha256 "4dca56d9adb81d8f664bbfee39f0578e2490ff5adbb6cc4fe14478c0ddd7ac77"
   end
 
