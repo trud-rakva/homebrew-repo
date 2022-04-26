@@ -9,6 +9,11 @@ class Libfido2 < Formula
   depends_on "pkg-config" => :build
   depends_on "libcbor"
   depends_on "trud-rakva/repo/libressl"
+  
+  patch do
+    url "https://github.com/Yubico/libfido2/commit/961c91944de217b259649467baa3dd8b33e5dfd2.patch"
+    sha256 "ac8adc343847e7775a9503c35be8e19134bb6ce765a505338ddae17eabfa374f"
+  end
 
   def install
     mkdir "build" do
