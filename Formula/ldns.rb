@@ -12,7 +12,12 @@ class Ldns < Formula
   end
 
   depends_on "trud-rakva/repo/libressl"
-
+  
+  patch do
+    url "https://github.com/NLnetLabs/ldns/commit/887d618239312cc8c11e41c45492eee02a8f28a2.patch"
+    sha256 "237b634f7617be08d4e626fc1e6e9f3d1e08d990a70bb65912458e3a6fa78f40"
+  end
+  
   def install
     args = %W[
       --prefix=#{prefix}
