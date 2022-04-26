@@ -1,9 +1,9 @@
 class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.4.3.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.4.3.tar.gz"
-  sha256 "ff88bffe354818b3ccf545e3cafe454c5031c7a77217074f533271d63c37f08d"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.5.2.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.5.2.tar.gz"
+  sha256 "56feab8e21c3fa6549f8b7d7511658b8e98518162838a795314732654adf3e5f"
 
   livecheck do
     url :homepage
