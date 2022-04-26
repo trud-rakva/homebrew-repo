@@ -11,8 +11,8 @@ class Libfido2 < Formula
   depends_on "trud-rakva/repo/libressl"
   
   patch do
-    url "https://github.com/Yubico/libfido2/commit/961c91944de217b259649467baa3dd8b33e5dfd2.patch"
-    sha256 "ac8adc343847e7775a9503c35be8e19134bb6ce765a505338ddae17eabfa374f"
+    url "https://github.com/trud-rakva/homebrew-repo/blob/master/Patches/libfido2-libressl35.patch
+    sha256 "4dca56d9adb81d8f664bbfee39f0578e2490ff5adbb6cc4fe14478c0ddd7ac77"
   end
 
   def install
