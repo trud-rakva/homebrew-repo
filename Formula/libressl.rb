@@ -17,6 +17,11 @@ class Libressl < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+  
+  patch do
+    url "https://raw.githubusercontent.com/trud-rakva/homebrew-repo/master/Patch/libressl-35-macos-fix-endian-header-detection.patch"
+    sha256 "dc895e0a9a50b945e58de53d26ec6b504ca26535f6457b079bf69b6352b6978d"
+  end
 
   keg_only :provided_by_macos
 
