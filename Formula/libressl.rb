@@ -12,10 +12,6 @@ class Libressl < Formula
 
   head do
     url "https://github.com/libressl-portable/portable.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
   
   patch do
@@ -23,6 +19,10 @@ class Libressl < Formula
     sha256 "dc895e0a9a50b945e58de53d26ec6b504ca26535f6457b079bf69b6352b6978d"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  
   keg_only :provided_by_macos
 
   def install
