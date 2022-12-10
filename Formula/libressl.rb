@@ -1,9 +1,9 @@
 class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.5.3.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.5.3.tar.gz"
-  sha256 "3ab5e5eaef69ce20c6b170ee64d785b42235f48f2e62b095fca5d7b6672b8b28"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.6.1.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.6.1.tar.gz"
+  sha256 "acfac61316e93b919c28d62d53037ca734de85c46b4d703f19fd8395cf006774"
 
   livecheck do
     url :homepage
@@ -12,16 +12,11 @@ class Libressl < Formula
 
   head do
     url "https://github.com/libressl-portable/portable.git"
-  end
-  
-  patch do
-    url "https://raw.githubusercontent.com/trud-rakva/homebrew-repo/master/Patch/libressl-35-macos-fix-endian-header-detection.patch"
-    sha256 "dc895e0a9a50b945e58de53d26ec6b504ca26535f6457b079bf69b6352b6978d"
-  end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
   
   keg_only :provided_by_macos
 
