@@ -16,6 +16,12 @@ class Openssh < Formula
   depends_on "trud-rakva/repo/libfido2"
   depends_on "trud-rakva/repo/libressl"
 
+  uses_from_macos "lsof" => :test
+  uses_from_macos "krb5"
+  uses_from_macos "libedit"
+  uses_from_macos "libxcrypt"
+  uses_from_macos "zlib"
+  
   resource "com.openssh.sshd.sb" do
     url "https://raw.githubusercontent.com/apple-oss-distributions/OpenSSH/OpenSSH-268.100.4/com.openssh.sshd.sb"
     sha256 "a273f86360ea5da3910cfa4c118be931d10904267605cdd4b2055ced3a829774"
