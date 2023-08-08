@@ -1,11 +1,11 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
-  url "https://curl.se/download/curl-8.2.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_2_0/curl-8.2.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.2.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.2.0.tar.bz2"
-  sha256 "080aaa5bef29ab3f592101e7a95f32ddbe88b92125cb28dde479d5a104928ea4"
+  url "https://curl.se/download/curl-8.2.1.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_2_1/curl-8.2.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.2.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.2.1.tar.bz2"
+  sha256 "0f1e31ebe336c09ec66381f1532f8350e466e1d02ffe10c4ac44a867f1b9d343"
 
   livecheck do
     url "https://curl.se/download/"
