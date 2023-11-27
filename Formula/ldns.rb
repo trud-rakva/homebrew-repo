@@ -20,6 +20,7 @@ class Ldns < Formula
       --with-examples
       --with-ssl=#{Formula["libressl"].opt_prefix}
       --disable-dane-verify
+      --disable-gost
     ]
 
     system "./configure", *args
