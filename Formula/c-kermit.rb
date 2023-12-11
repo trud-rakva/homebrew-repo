@@ -36,7 +36,6 @@ class CKermit < Formula
 end
 
 __END__
-diff -ru z/ckucmd.c k/ckucmd.c
 --- z/ckucmd.c	2004-01-07 10:04:04.000000000 -0800
 +++ k/ckucmd.c	2019-01-01 15:52:44.798864262 -0800
 @@ -7103,7 +7103,7 @@
@@ -48,3 +47,47 @@ diff -ru z/ckucmd.c k/ckucmd.c
      x = (int) ((stdin->_IO_read_end) - (stdin->_IO_read_ptr));
      debug(F101,"cmdconchk _IO_file_flags","",x);
  #else  /* _IO_file_flags */
+--- ckcmai.c.orig	2011-08-20 23:20:42.000000000 +0200
++++ ckcmai.c	2020-11-07 06:54:10.000000000 +0100
+@@ -1,7 +1,7 @@
+ #define EDITDATE  "20 Aug 2011"		/* Last edit date dd mmm yyyy */
+ #define EDITNDATE "20110820"		/* Keep them in sync */
+ /* Sat Aug 20 17:20:17 2011 */
+-
++#include <time.h>
+ /* ckcmai.c - Main program for C-Kermit plus some miscellaneous functions */
+
+ /*
+
+--- ckuusx.c.orig	2011-06-17 16:11:34.000000000 +0200
++++ ckuusx.c	2020-12-02 09:30:29.000000000 +0100
+@@ -28,6 +28,8 @@
+ #include "ckcker.h"
+ #include "ckuusr.h"
+ #include "ckcxla.h"
++#include <curses.h>
++#include <term.h>
+
+ #ifndef NOHTERMCAP
+ #ifdef NOTERMCAP
+
+--- ckupty.c.orig	2011-06-13 17:34:13.000000000 +0200
++++ ckupty.c	2020-12-02 09:17:03.000000000 +0100
+@@ -56,6 +56,7 @@
+
+ #include "ckcsym.h"
+ #include "ckcdeb.h"			/* To pick up NETPTY definition */
++#include <util.h>
+
+ #ifndef NETPTY				/* Selector for PTY support */
+
+--- ckutio.c.orig	2011-08-20 23:22:35.000000000 +0200
++++ ckutio.c	2020-12-02 09:16:34.000000000 +0100
+@@ -41,6 +41,7 @@
+
+ #include "ckcsym.h"			/* This must go first   */
+ #include "ckcdeb.h"			/* This must go second  */
++#include <util.h>
+
+ #ifdef OSF13
+ #ifdef CK_ANSIC
