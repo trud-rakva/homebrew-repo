@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.43.0.tar.xz"
-  sha256 "5446603e73d911781d259e565750dcd277a42836c8e392cac91cf137aa9b76ec"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.44.0.tar.xz"
+  sha256 "e358738dcb5b5ea340ce900a0015c03ae86e804e7ff64e47aa4631ddee681de3"
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
