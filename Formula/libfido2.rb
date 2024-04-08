@@ -9,6 +9,11 @@ class Libfido2 < Formula
   depends_on "pkg-config" => :build
   depends_on "libcbor"
   depends_on "trud-rakva/repo/libressl"
+
+  patch :p0 do
+    url "https://raw.githubusercontent.com/trud-rakva/homebrew-repo/master/Patch/libfido2-114-libressl-39-EVP_MD.patch"
+    sha256 "7555c8f7bc95996165d87374e49b619405ef5d23da2501bde7b25916d40d6848"
+  end
   
   def install
     mkdir "build" do
