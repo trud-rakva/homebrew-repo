@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.44.0.tar.xz"
-  sha256 "e358738dcb5b5ea340ce900a0015c03ae86e804e7ff64e47aa4631ddee681de3"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.45.1.tar.xz"
+  sha256 "e64d340a8e627ae22cfb8bcc651cca0b497cf1e9fdf523735544ff4a732f12bf"
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
@@ -18,20 +18,20 @@ class Git < Formula
   uses_from_macos "zlib"
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.44.0.tar.xz"
-    sha256 "808f1221940de2a32d7b4a3f675f968a7d0a75058a12a791afcda58b01a6e820"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.45.1.tar.xz"
+    sha256 "f7095c4478028bc04afd63cd217ea5d4fa08ab819cbb66df40a1a12648edbf40"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.44.0.tar.xz"
-    sha256 "777be83bd54e301988fc49708cae3b5ce4b0971c2ca3b7a720be58e2f4633fcb"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.45.1.tar.xz"
+    sha256 "e622d7ab1114b4f67cb9d8d4ab81f6e0fcf3d1291711569befda29172315d9f0"
   end
 
   resource "Net::SMTP::SSL" do
     url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
     sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
   end
-
+  
   def install
     # If these things are installed, tell Git build system not to use them
     ENV["NO_FINK"] = "1"
