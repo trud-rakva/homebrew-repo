@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.45.1.tar.xz"
-  sha256 "e64d340a8e627ae22cfb8bcc651cca0b497cf1e9fdf523735544ff4a732f12bf"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.46.0.tar.xz"
+  sha256 "7f123462a28b7ca3ebe2607485f7168554c2b10dfc155c7ec46300666ac27f95"
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
@@ -18,13 +18,13 @@ class Git < Formula
   uses_from_macos "zlib"
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.45.1.tar.xz"
-    sha256 "f7095c4478028bc04afd63cd217ea5d4fa08ab819cbb66df40a1a12648edbf40"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.46.0.tar.xz"
+    sha256 "175d756b9d5eda6656c8067c7f8f80f15bd0cd9f908c3c4995ee6fe8a4182104"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.45.1.tar.xz"
-    sha256 "e622d7ab1114b4f67cb9d8d4ab81f6e0fcf3d1291711569befda29172315d9f0"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.46.0.tar.xz"
+    sha256 "dc118b1d4036e58d5cc4f4e804d903e1e137dac3e9826a246a7e517afd877bd3"
   end
 
   resource "Net::SMTP::SSL" do
