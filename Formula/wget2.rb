@@ -5,10 +5,9 @@ class Wget2 < Formula
   sha256 "a05dc5191c6bad9313fd6db2777a78f5527ba4774f665d5d69f5a7461b49e2e7"
 
   depends_on "doxygen" => :build
-  # The pattern used in 'docs/wget2_md2man.sh.in' doesn't work with system sed
   depends_on "gnu-sed" => :build
   depends_on "graphviz" => :build
-  depends_on "lzip" => :build
+  depends_on "lzlib" => :build # static lib
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build # Build fails with macOS-provided `texinfo`
@@ -17,22 +16,14 @@ class Wget2 < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "gpgme"
-  depends_on "libassuan"
-  depends_on "libgpg-error"
   depends_on "libidn2"
-  depends_on "libmicrohttpd"
   depends_on "libnghttp2"
   depends_on "libpsl"
-  depends_on "libtasn1"
-  depends_on "lzlib"
-  depends_on "nettle"
-  depends_on "p11-kit"
   depends_on "pcre2"
   depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
-  uses_from_macos "icu4c"
   uses_from_macos "zlib"
 
   def install
