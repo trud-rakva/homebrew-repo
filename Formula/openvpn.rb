@@ -16,12 +16,12 @@ class Openvpn < Formula
   depends_on "trud-rakva/repo/libressl"
 
   def install
-    system "./configure", "--disable-debug",
+    system "./configure", "OPENSSL_LIBS=\"-L#{Formula["libressl"].opt_prefix}/lib -lssl -lcrypto\"",
+                          "OPENSSL_CFLAGS=\"-I#{Formula["libressl"].opt_prefix}/include\"",
+                          "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--with-crypto-library=openssl,
-                          "OPENSSL_LIBS=\"-L#{Formula["libressl"].opt_prefix}/lib -lssl -lcrypto\"",
-                          "OPENSSL_CFLAGS=\"-I#{Formula["libressl"].opt_prefix}/include\"",
                           "--prefix=#{prefix}"
     inreplace "sample/sample-plugins/Makefile" do |s|
       s.gsub! Superenv.shims_path/"pkg-config", Formula["pkg-config"].opt_bin/"pkg-config"
