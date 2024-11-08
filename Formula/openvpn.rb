@@ -22,7 +22,6 @@ class Openvpn < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
-      --with-crypto-library=openssl
       --prefix=#{prefix}
     ]
     system "./configure", *args 
