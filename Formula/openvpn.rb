@@ -17,7 +17,7 @@ class Openvpn < Formula
 
   def install
     args = %W[
-      OPENSSL_LIBS=\"-L#{Formula["libressl"].opt_prefix}/lib -lssl -lcrypto\"
+      OPENSSL_LIBS=\"-L#{Formula["libressl"].opt_prefix}/lib\"
       OPENSSL_CFLAGS=\"-I#{Formula["libressl"].opt_prefix}/include\"
       --disable-debug
       --disable-dependency-tracking
