@@ -19,7 +19,6 @@ class Openvpn < Formula
     ENV.append "OPENSSL_LIBS", "-L#{Formula["libressl"].opt_prefix}/lib -lssl -lcrypto"
     ENV.append "OPENSSL_CFLAGS", "-I#{Formula["libressl"].opt_prefix}/include"
     args = %W[
-      --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
