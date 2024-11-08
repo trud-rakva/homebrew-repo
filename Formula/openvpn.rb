@@ -16,8 +16,8 @@ class Openvpn < Formula
   depends_on "trud-rakva/repo/libressl"
 
   def install
-    system "./configure", "OPENSSL_LIBS=\"-L#{Formula["libressl"].opt_prefix}/lib -lssl -lcrypto\"",
-                          "OPENSSL_CFLAGS=\"-I#{Formula["libressl"].opt_prefix}/include\"",
+    system "./configure", OPENSSL_LIBS="-L#{Formula["libressl"].opt_prefix}/lib -lssl -lcrypto",
+                          OPENSSL_CFLAGS="-I#{Formula["libressl"].opt_prefix}/include",
                           "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
