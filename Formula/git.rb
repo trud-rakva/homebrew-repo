@@ -18,13 +18,13 @@ class Git < Formula
   uses_from_macos "zlib"
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.47.0.tar.xz"
-    sha256 "fab133e8ef4cf825f5014d2fc708461e7a383fd90e52fbbae0b14ca12ede17b6"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.48.0.tar.xz"
+    sha256 "ae8427989f8d0ca4b74521a75630737e5e3e0512ec99cab93f8e682c99a42fef"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.47.0.tar.xz"
-    sha256 "c8dfefa07bddc9e5c2aa48ff03e80a3461d9baa45f46b17b1a43c8e132b1fab8"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.48.0.tar.xz"
+    sha256 "1590a164e733b5cc83e59d51e6b323b46e2fdd3dec94ea5bf1fbbd0c129ed0d3"
   end
 
   resource "Net::SMTP::SSL" do
