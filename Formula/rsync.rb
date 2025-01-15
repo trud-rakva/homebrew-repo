@@ -1,10 +1,10 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.3.0.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.3.0.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.3.0.tar.gz"
-  sha256 "7399e9a6708c32d678a72a63219e96f23be0be2336e50fd1348498d07041df90"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.4.0.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.4.0.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.4.0.tar.gz"
+  sha256 "8e942f95a44226a012fe822faffa6c7fc38c34047add3a0c941e9bc8b8b93aa4"
 
   livecheck do
     url "https://rsync.samba.org/ftp/rsync/?C=M&O=D"
@@ -20,9 +20,9 @@ class Rsync < Formula
   uses_from_macos "zlib"
 
   patch do
-    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.3.0.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.3.0.tar.gz"
-    sha256 "3dd51cd88d25133681106f68622ebedbf191ab25a21ea336ba409136591864b0"
+    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.4.0.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.4.0.tar.gz"
+    sha256 "51533dc5b9b4293d3499b673df185c93484f3e6fcf2de52f9bf1f07fa3d7cbc1"
     apply "patches/fileflags.diff"
   end
 
