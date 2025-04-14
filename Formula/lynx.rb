@@ -12,6 +12,7 @@ class Lynx < Formula
 
   # Move to brew ncurses to fix screen related bugs
   depends_on "ncurses"
+  depends_on "brotli"
   depends_on "trud-rakva/repo/libressl"
 
   uses_from_macos "zlib"
@@ -29,6 +30,7 @@ class Lynx < Formula
                           "--enable-default-colors",
                           "--with-zlib",
                           "--with-bzlib",
+                          "--with-brotli",
                           "--with-ssl=#{Formula["libressl"].opt_prefix}",
                           "--enable-ipv6",
                           "--with-screen=ncurses",
