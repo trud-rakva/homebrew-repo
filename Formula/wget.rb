@@ -1,8 +1,8 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.24.5.tar.gz"
-  sha256 "fa2dc35bab5184ecbc46a9ef83def2aaaa3f4c9f3c97d4bd19dcb07d4da637de"
+  url "https://ftp.gnu.org/gnu/wget/wget-1.25.0.tar.gz"
+  sha256 "766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784"
 
   depends_on "pkg-config" => :build
   depends_on "libidn2"
