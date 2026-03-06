@@ -1,8 +1,8 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.5a/tmux-3.5a.tar.gz"
-  sha256 "16216bd0877170dfcc64157085ba9013610b12b082548c7c9542cc0103198951"
+  url "https://github.com/tmux/tmux/releases/download/3.6a/tmux-3.6a.tar.gz"
+  sha256 "b6d8d9c76585db8ef5fa00d4931902fa4b8cbe8166f528f44fc403961a3f3759"
 
   livecheck do
     url :stable
