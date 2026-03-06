@@ -12,6 +12,7 @@ class Git < Formula
 
   depends_on "gettext"
   depends_on "pcre2"
+  depends_on "libiconv"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
@@ -35,6 +36,12 @@ class Git < Formula
   resource "Authen::SASL" do
     url "https://cpan.metacpan.org/authors/id/E/EH/EHUELS/Authen-SASL-2.2000.tar.gz"
     sha256 "8cdf5a7f185448b614471675dae5b26f8c6e330b62264c3ff5d91172d6889b99"
+  end
+
+    # https://lore.kernel.org/git/pull.2046.v2.git.1770775169908.gitgitgadget@gmail.com/
+  patch do
+    url "https://raw.githubusercontent.com/trud-rakva/homebrew-repo/refs/heads/master/Patch/git-2.53.0-osxkeychain-top-level-makefile.patch"
+    sha256 "ef3f390f940e080548474950380edb008f31e5fd500c8ad1d470fc764b6e65ac"
   end
   
   def install
