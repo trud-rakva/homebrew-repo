@@ -20,11 +20,9 @@ class CKermit < Formula
   patch :DATA
 
   def install
-    ENV.append_to_cflags "-Wno-implicit-int"
-    ENV.append_to_cflags "-Wno-implicit-function-declaration"
-    ENV.append_to_cflags "-Wno-return-type"
-    
-    system "make", "macosx"
+    cflags = "-Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-type"
+    system "make", "macosx", "KFLAGS=#{cflags}"
+
     man1.mkpath
 
     # The makefile adds /man to the end of manroot when running install
