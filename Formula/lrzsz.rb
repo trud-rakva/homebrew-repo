@@ -42,6 +42,8 @@ class Lrzsz < Formula
   end
 
   def install
+    ENV.append_to_cflags "-Wno-implicit-int"
+  
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--disable-nls"
