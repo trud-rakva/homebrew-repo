@@ -20,6 +20,10 @@ class CKermit < Formula
   patch :DATA
 
   def install
+    ENV.append_to_cflags "-Wno-implicit-int"
+    ENV.append_to_cflags "-Wno-implicit-function-declaration"
+    ENV.append_to_cflags "-Wno-return-type"
+    
     system "make", "macosx"
     man1.mkpath
 
