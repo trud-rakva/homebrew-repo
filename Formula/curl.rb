@@ -1,26 +1,33 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
-  url "https://curl.se/download/curl-8.19.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_19_0/curl-8.19.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.19.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.19.0.tar.bz2"
-  sha256 "eba3230c1b659211a7afa0fbf475978cbf99c412e4d72d9aa92d020c460742d4"
+  url "https://curl.se/download/curl-8.20.0.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_20_0/curl-8.20.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.20.0.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.20.0.tar.bz2"
+  sha256 "4be48e69cf467246cb97d369b85d78a08528f2b37cffef2418ee16e6a4eb596e"
 
   livecheck do
     url "https://curl.se/download/"
     regex(/href=.*?curl[._-]v?(.*?)\.t/i)
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkgconf" => [:build, :test]
+
   depends_on "brotli"
-  depends_on "libidn2"
   depends_on "libnghttp2"
+  depends_on "libnghttp3"
+  depends_on "libngtcp2"
   depends_on "libssh2"
   depends_on "zstd"
   depends_on "trud-rakva/repo/libressl"
   
   uses_from_macos "krb5"
   uses_from_macos "zlib"
+  uses_from_macos "openldap"
 
   def install
 
@@ -34,10 +41,14 @@ class Curl < Formula
       --without-ca-path
       --with-ca-fallback
       --with-secure-transport
-      --with-libidn2
       --with-libssh2
+      --with-nghttp3
+      --with-ngtcp2
       --without-libpsl
+      --with-apple-sectrust
       --with-gssapi
+      --with-apple-idn
+      --without-libidn2
     ]
     # mk: remove openssl pkgconfig to force use libressl
     system 'echo $PKG_CONFIG_PATH'
