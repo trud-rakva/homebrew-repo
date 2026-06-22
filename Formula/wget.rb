@@ -5,7 +5,6 @@ class Wget < Formula
   sha256 "766e48423e79359ea31e41db9e5c289675947a7fcf2efdcedb726ac9d0da3784"
 
   depends_on "pkg-config" => :build
-  depends_on "libidn2"
   depends_on "trud-rakva/repo/libressl"
 
   def install
