@@ -1,8 +1,8 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.6a/tmux-3.6a.tar.gz"
-  sha256 "b6d8d9c76585db8ef5fa00d4931902fa4b8cbe8166f528f44fc403961a3f3759"
+  url "https://github.com/tmux/tmux/releases/download/3.6b/tmux-3.6b.tar.gz"
+  sha256 "390759d25fdba016887ec982b808927e637070fd7d03a8021f8ef3102b9ae3c7"
 
   livecheck do
     url :stable
@@ -21,10 +21,9 @@ class Tmux < Formula
   depends_on "pkgconf" => :build
   depends_on "libevent"
   depends_on "ncurses"
+  depends_on "utf8proc"
 
   uses_from_macos "bison" => :build # for yacc
-
-  depends_on "utf8proc"
 
   def install
     system "sh", "autogen.sh" if build.head?
