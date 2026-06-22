@@ -1,25 +1,23 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/refs/tags/1.16.0.tar.gz"
-  sha256 "7d86088ef4a48f9faad4ff6f41343328157849153a8dc94d88f4b5461cb29474"
+  url "https://github.com/Yubico/libfido2/archive/refs/tags/1.17.0.tar.gz"
+  sha256 "ace062d14a482ff9325410ff63d06c8b5fe87e79ebc18dda07add2bc0188c77f"
 
   depends_on "cmake" => :build
   depends_on "mandoc" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => [:build, :test]
   depends_on "libcbor"
   depends_on "trud-rakva/repo/libressl"
 
   uses_from_macos "zlib"
   
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "man_symlink_html"
-      system "make", "man_symlink"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", ".", *args, *std_cmake_args
+    system "cmake", "--build", "."
+    system "cmake", "--build", ".", "--target", "man_symlink_html"
+    system "cmake", "--build", ".", "--target", "man_symlink"
+    system "cmake", "--install", "."
   end
 
   test do
