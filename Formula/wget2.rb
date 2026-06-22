@@ -16,7 +16,6 @@ class Wget2 < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "gpgme"
-  depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libpsl"
   depends_on "pcre2"
