@@ -1,16 +1,19 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.4.1.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.4.1.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.4.1.tar.gz"
-  sha256 "2924bcb3a1ed8b551fc101f740b9f0fe0a202b115027647cf69850d65fd88c52"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.4.4.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.4.4.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.4.4.tar.gz"
+  sha256 "bd88cf82fa653da32314fb229136407c5c90f80d1758d8f4b091767877d8fa96"
 
   livecheck do
     url "https://rsync.samba.org/ftp/rsync/?C=M&O=D"
     regex(/href=.*?rsync[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  
   depends_on "lz4"
   depends_on "trud-rakva/repo/libressl"
   depends_on "popt"
