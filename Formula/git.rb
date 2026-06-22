@@ -13,7 +13,6 @@ class Git < Formula
   depends_on "pkgconf" => :build
   depends_on "gettext"
   depends_on "pcre2"
-  depends_on "libiconv"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
