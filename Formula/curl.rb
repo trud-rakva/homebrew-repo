@@ -19,7 +19,7 @@ class Curl < Formula
 
   depends_on "brotli"
   depends_on "libnghttp2"
-  depends_on "libngtcp2"
+  depends_on "libnghttp3"
   depends_on "libssh2"
   depends_on "zstd"
   depends_on "trud-rakva/repo/libressl"
@@ -40,8 +40,7 @@ class Curl < Formula
       --with-ca-fallback
       --with-secure-transport
       --with-libssh2
-      --with-nghttp2
-      --with-ngtcp2
+      --with-nghttp3
       --without-libpsl
       --with-apple-sectrust
       --with-gssapi
