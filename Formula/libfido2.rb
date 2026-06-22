@@ -13,7 +13,7 @@ class Libfido2 < Formula
   uses_from_macos "zlib"
   
   def install
-    system "cmake", "-S", ".", "-B", ".", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", ".", *std_cmake_args
     system "cmake", "--build", "."
     system "cmake", "--build", ".", "--target", "man_symlink_html"
     system "cmake", "--build", ".", "--target", "man_symlink"
