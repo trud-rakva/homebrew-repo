@@ -26,7 +26,6 @@ class Curl < Formula
   depends_on "trud-rakva/repo/libressl"
   
   uses_from_macos "krb5"
-  uses_from_macos "zlib"
   uses_from_macos "openldap"
 
   def install
@@ -55,19 +54,38 @@ class Curl < Formula
     ENV['PKG_CONFIG_PATH'] = `echo $PKG_CONFIG_PATH | sed 's/:[^:]*openssl[^:]*//'`
     system 'echo $PKG_CONFIG_PATH'
     
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
+    system "make", "install", "-C", "scripts"
+    libexec.install "scripts/mk-ca-bundle.pl"
   end
 
   test do
     # Fetch the curl tarball and see that the checksum matches.
     # This requires a network connection, but so does Homebrew in general.
-    filename = (testpath/"test.tar.gz")
-    system "#{bin}/curl", "-L", stable.url, "-o", filename
+    filename = testpath/"test.tar.gz"
+    system bin/"curl", "-L", stable.url, "-o", filename
     filename.verify_checksum stable.checksum
 
+    # Verify QUIC and HTTP3 support
+    system bin/"curl", "--verbose", "--http3-only", "--head", "https://cloudflare-quic.com"
+
+    # Check dependencies linked correctly
+    curl_features = shell_output("#{bin}/curl-config --features").split("\n")
+    %w[brotli GSS-API HTTP2 HTTP3 IDN libz SSL zstd].each do |feature|
+      assert_includes curl_features, feature
+    end
+    curl_protocols = shell_output("#{bin}/curl-config --protocols").split("\n")
+    %w[LDAPS SCP SFTP].each do |protocol|
+      assert_includes curl_protocols, protocol
+    end
+
     system libexec/"mk-ca-bundle.pl", "test.pem"
-    assert_predicate testpath/"test.pem", :exist?
-    assert_predicate testpath/"certdata.txt", :exist?
+    assert_path_exists testpath/"test.pem"
+    assert_path_exists testpath/"certdata.txt"
+
+    ENV["PKG_CONFIG_PATH"] = lib/"pkgconfig"
+    ENV.append_path "PKG_CONFIG_PATH", Formula["zlib-ng-compat"].lib/"pkgconfig" unless OS.mac?
+    system "pkgconf", "--cflags", "libcurl"
   end
 end
