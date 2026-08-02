@@ -70,6 +70,7 @@ class Git < Formula
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
       NO_TCLTK=1
+      NO_RUST=1
     ]
 
     args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
