@@ -1,10 +1,10 @@
 class Openssh < Formula
   desc "OpenBSD SSH connectivity tools compiled with LibreSSL"
   homepage "https://www.openssh.com/"
-  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.4p1.tar.gz"
-  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.4p1.tar.gz"
-  version "10.4p1"
-  sha256 "ef6026dd2aea8d56059638d5d3262902c892ceba9f88395835e0d06d3fb63238"
+  url "https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.5p1.tar.gz"
+  mirror "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.5p1.tar.gz"
+  version "10.5p1"
+  sha256 "d44d28a839ea9daf969cc69150fde59910b2b39361dad81a3bd6cbd19218db11"
   
   livecheck do
     url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/"
@@ -22,7 +22,14 @@ class Openssh < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
+  resource "com.openssh.sshd.sb" do
+    url "https://raw.githubusercontent.com/apple-oss-distributions/OpenSSH/OpenSSH-268.100.4/com.openssh.sshd.sb"
+    sha256 "a273f86360ea5da3910cfa4c118be931d10904267605cdd4b2055ced3a829774"
+  end
+  
   def install
+    ENV.append "CPPFLAGS", "-D__APPLE_SANDBOX_NAMED_EXTERNAL__"
+
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/ssh
@@ -38,9 +45,26 @@ class Openssh < Formula
     system "make"
     ENV.deparallelize
     system "make", "install"
+
+    # This was removed by upstream with very little announcement and has
+    # potential to break scripts, so recreate it for now.
+    # Debian have done the same thing.
+    bin.install_symlink bin/"ssh" => "slogin"
+
+    buildpath.install resource("com.openssh.sshd.sb")
+    (etc/"ssh").install "com.openssh.sshd.sb" => "org.openssh.sshd.sb"
+
+    # Don't hardcode Cellar paths in configuration files
+    inreplace etc/"ssh/sshd_config", prefix, opt_prefix
   end
 
   test do
+    (etc/"ssh").find do |pn|
+      next unless pn.file?
+
+      refute_match HOMEBREW_CELLAR.to_s, pn.read
+    end
+
     assert_match "OpenSSH_", shell_output("#{bin}/ssh -V 2>&1")
 
     port = free_port
