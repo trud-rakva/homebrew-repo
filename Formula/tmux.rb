@@ -25,6 +25,15 @@ class Tmux < Formula
 
   uses_from_macos "bison" => :build # for yacc
 
+  on_macos do
+    # https://github.com/tmux/tmux/blob/62044f02dff22d304da78ac81b69afcf84872ac7/CHANGES#L169-L170
+    # https://github.com/tmux/tmux/issues/5385
+    depends_on "jemalloc"
+  end
+
+  # runs a server as a test
+  allow_network_access! :test
+
   def install
     system "sh", "autogen.sh" if build.head?
 
