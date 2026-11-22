@@ -25,6 +25,17 @@ class Wget2 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  # Fix `GNULIB_LIBS` being assigned an empty value by the unquoted `AC_SUBST`
+  # TODO: remove along with `autoreconf` and its build dependencies in the next release
+  patch do
+    url "https://gitlab.com/gnuwget/wget2/-/commit/e80d42ac035c1098f98ca447a418d19ac883160c.diff"
+    sha256 "7b253e3e7173b78711d5df370069132792331fa2f043152255762c88ec74a2ba"
+    type :backport
+    resolves "https://gitlab.com/gnuwget/wget2/-/issues/724"
+  end
+
+  allow_network_access! :test
+
   def install
     gnused = Formula["gnu-sed"]
     lzlib = Formula["lzlib"]
