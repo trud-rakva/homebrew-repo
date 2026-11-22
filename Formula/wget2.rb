@@ -3,7 +3,9 @@ class Wget2 < Formula
   homepage "https://gitlab.com/gnuwget/wget2"
   url "https://ftpmirror.gnu.org/wget/wget2-2.3.0.tar.gz"
   sha256 "4f1915b2a55a789a15f2f9ada7cc44bca81418e648f76fd88a7f4dd028b2149f"
-
+  
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "doxygen" => :build
   depends_on "gnu-sed" => :build
   depends_on "graphviz" => :build
