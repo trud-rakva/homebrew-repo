@@ -9,6 +9,7 @@ class Wget2 < Formula
   depends_on "doxygen" => :build
   depends_on "gnu-sed" => :build
   depends_on "graphviz" => :build
+  depends_on "libtool" => :build
   depends_on "lzlib" => :build # static lib
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
