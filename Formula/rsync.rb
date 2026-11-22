@@ -1,10 +1,9 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.5.0.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.5.0.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.5.0.tar.gz"
-  sha256 "c7ffd1ef653e99540f661e47cb00b7f9cad1ee6b972399b16f93d672656e0d33"
+ url "https://github.com/RsyncProject/rsync/releases/download/v3.5.2/rsync-3.5.2.tar.gz"
+  mirror "https://rsync.samba.org/ftp/rsync/rsync-3.5.2.tar.gz"
+  sha256 "a10d591825251e070f74c98df3daad195def4ed81b4a2de16169026aea33f6c8"
 
   livecheck do
     url "https://rsync.samba.org/ftp/rsync/?C=M&O=D"
