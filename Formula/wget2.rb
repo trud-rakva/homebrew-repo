@@ -46,15 +46,21 @@ class Wget2 < Formula
     ENV.append "LZIP_CFLAGS", "-I#{lzlib.include}"
     ENV.append "LZIP_LIBS", "-L#{lzlib.lib} -llz"
 
+    system "autoreconf", "--force", "--install", "--verbose"
+    
     system "./configure", *std_configure_args,
            "--with-bzip2",
            "--with-lzma",
            "--with-libintl-prefix=#{gettext.prefix}"
 
     system "make", "install"
+
+    # Remove `wget2_noinstall` binary, which is only for testing
+    # https://gitlab.com/gnuwget/wget2/-/work_items/565#note_699151912
+    rm bin/"wget2_noinstall"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/wget2 --version")
+    system bin/"wget2", "-O", File::NULL, "https://google.com"
   end
 end
